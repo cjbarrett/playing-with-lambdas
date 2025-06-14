@@ -5,7 +5,12 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build": "tsc",
+    "docker:build:local": "docker build -t playing-with-lambdas:local .",
+    "docker:run:local": "docker run --rm playing-with-lambdas:local",
+    "docker:build:lambda": "docker build -f Dockerfile.lambda -t playing-with-lambdas:lambda .",
+    "docker:push:lambda": "docker push <your-ecr-uri>/playing-with-lambdas:lambda"
   },
   "keywords": [],
   "author": "",

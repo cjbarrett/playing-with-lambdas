@@ -1,4 +1,4 @@
-import { getQuote } from '../src/getQuote';
+import { getQuote } from '../getQuote';
 import { APIGatewayProxyEvent, Context } from 'aws-lambda';
 import type { APIGatewayProxyResult } from 'aws-lambda';
 
