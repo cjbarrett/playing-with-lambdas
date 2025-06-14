@@ -21,4 +21,4 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/quotes.json ./
 COPY event.json ./
 
-CMD ["node", "dist/localInvoke.js"]
+CMD ["node", "dist/server.js"]

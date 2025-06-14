@@ -1,12 +1,23 @@
-FROM public.ecr.aws/lambda/nodejs20.x
+# ---------- Build ----------
+FROM node:20-alpine AS build
 
-WORKDIR /var/task
+WORKDIR /app
 
-COPY package*.json tsconfig.json ./
-COPY src ./src
+COPY package*.json tsconfig.lambda.json ./
 COPY quotes.json ./
+COPY src/getQuote.ts ./src/getQuote.ts
+COPY src/localInvoke.ts ./src/localInvoke.ts
 
 RUN npm install
-RUN npx tsc
+RUN npx tsc --project tsconfig.lambda.json
 
-CMD ["dist/getQuote.handler"]
+# ---------- Runtime ----------
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/quotes.json ./
+
+CMD ["node", "dist/getQuote.js"]

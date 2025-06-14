@@ -1,0 +1,7 @@
+{
+    "extends": "./tsconfig.json",
+    "include": [
+        "src/getQuote.ts",
+        "src/localInvoke.ts"
+    ]
+}

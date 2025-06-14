@@ -4,7 +4,7 @@ build-local:
 	docker build -t playing-with-lambdas:local .
 
 run-local:
-	docker run playing-with-lambdas:local
+	docker run --rm -p 3000:3000 playing-with-lambdas:local
 
 
 build-lambda:

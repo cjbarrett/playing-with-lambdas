@@ -18,6 +18,7 @@
   "description": "",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.149",
+    "@types/express": "^5.0.3",
     "@types/jest": "^29.5.14",
     "@types/node": "^24.0.1",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
@@ -29,5 +30,8 @@
     "prettier": "^3.5.3",
     "ts-jest": "^29.4.0",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
